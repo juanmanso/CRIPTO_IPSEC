@@ -1,6 +1,37 @@
 
 \subsection{Configuración de los routers}
 
+Se verificó el archivo de parámetros de configuración \texttt{/crypto/conf/config.sh} y el contenido se expone a continuación
+
+%%% Acá se ponen el contenido de config.sh %%%
+\lstset{language=bash}
+\begin{lstlisting}
+	ls /etc/vim
+\end{lstlisting}
+
+Luego se procede a configurar los routers \textsc{R1} y \textsc{R2}.
+
+Se corren los comandos:
+
+\begin{lstlisting}
+	hostname R1
+	ifconfig eth0 192.168.NRO_GR.41 netmask 255.255.255.0
+	ifconfig eth1 10.NRO_GR.1.1 netmask 255.255.255.0
+\end{lstlisting}
+
+\begin{lstlisting}
+	hostname R2
+	ifconfig eth0 192.168.NRO_GR.42 netmask 255.255.255.0
+	ifconfig eth1 10.NRO_GR.2.1 netmask 255.255.255.0
+\end{lstlisting}
+
+Y se modifica el archivo \texttt{/etc/hosts}:
+\begin{lstlisting}
+	127.0.0.1 localhost
+	192.168.NRO_GR.41 R1
+	192.168.NRO_GR.42 R2
+\end{lstlisting}
+
 \subsection{Configuración de los host}
 
 \subsection{Verificación de la red}

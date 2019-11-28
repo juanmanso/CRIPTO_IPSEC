@@ -1,0 +1,46 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}		% Configuro la codificación
+\input{config.tex}				% Archivo con los comandos globales como Título y autores
+\input{preamble.tex}
+\input{aux_functions.tex}		% Se proveen un conjunto de funciones extras
+
+% Defino el path de los includegraphics
+\graphicspath{{./Figuras/}}		% Directorio que contiene los graficos
+
+% Defino el path para los input de .tex y de .eps
+\makeatletter
+\def\input@path{{./Figuras/}{./Secciones/}{./Cover_page/}}
+\makeatother
+
+% Defino el path del listings
+\ifListings
+%% Cambiar el nombre de la carpeta si se utilizan Listings
+%	\lstinputpath{{../Octave/}}
+\fi
+
+\definecolor{myred}{rgb}{0.5,0,0}
+\definecolor{mygreen}{rgb}{0,0.5,0}
+
+\renewcommand{\thesubsubsection}{\thesubsection.\alph{subsubsection}}
+
+\begin{document}
+		% Carátula (formal o simple,_formal o _simple respectivamente) con Resumen
+		% incluido e Índice (si es necesario configurar en config.tex) del informe
+		\input{cover_formal.tex}
+	\setcounter{page}{1}
+
+%	\begin{center}{\Large{\textbf{Introducción}}}\end{center}
+
+	\section{Objetivo}
+		\input{0_introduccion.tex}
+
+	\section{Análisis teórico}
+		\input{1_teoria.tex}
+
+	\section{Desarrollo}
+		\input{2_desarrollo.tex}
+
+	\section{Conclusiones}\label{sec:conclusiones}
+		\input{3_conclusiones.tex}
+\end{document}
